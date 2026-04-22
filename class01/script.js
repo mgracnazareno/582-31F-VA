@@ -111,3 +111,79 @@ function greetings(str) {
 // call function
 console.log(getFullName(name, lastName));
 greetings(fullName);
+document.getElementById("title").innerText = fullName;
+
+function calculateTotal(price, quantity) {
+  return price * quantity;
+}
+
+function formatPrice(amount) {
+  return "$" + amount.toFixed(2);
+}
+
+const totalPrice = calculateTotal(20.99, 3);
+console.log(totalPrice);
+console.log(formatPrice(totalPrice));
+
+/**
+ * Arrays and loops
+ */
+
+const fruits = ["apple", "banana", "orange"];
+console.log(fruits);
+console.log(fruits[0]); // first element
+console.log(fruits.length); // length
+console.log(fruits[fruits.length - 1]); //last element
+
+// loop through an array!
+fruits.forEach(function (fruit) {
+  console.log(fruit);
+});
+
+console.log("--------");
+fruits.forEach((fruit) => console.log(fruit));
+
+console.log("--------");
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+console.log("--------");
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+console.log("--------");
+i = 0;
+while (i < fruits.length) {
+  console.log(fruits[i]);
+  i++;
+}
+
+/**
+ * find function
+ * finds the first occurence that passes the condition
+ */
+
+const prices = [10, 20, 30, 40];
+const firstBigPrice = prices.find(function (price) {
+  return price > 25;
+});
+
+/** filter function
+ *
+ */
+// create an array of all elements that pass the condition within the array
+const expensivePrices = prices.filter(function (price) {
+  return price > 25;
+});
+console.log(expensivePrices);
+
+/**Map function
+ *
+ */
+//transform each item in the array and stores it in a new array
+const formattedPrices = prices.map(function (price) {
+  return "$" + price;
+});
+console.log(formattedPrices);
