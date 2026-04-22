@@ -104,10 +104,10 @@ function getFullName(name, lastname) {
 
 // 2.
 // write a function that greets the user calling their fullname
-function greetings() {
-  console.log(fullName);
+function greetings(str) {
+  console.log(str);
 }
 
+// call function
 console.log(getFullName(name, lastName));
-// console.log(greetings());  //undefined
-greetings();
+greetings(fullName);
