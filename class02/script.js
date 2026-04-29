@@ -66,8 +66,13 @@ output.textContent = "I would like to have one red banana.";
 const topics = ["Big Ben", "Statue of Liberty", "Chichen"];
 const topicList = document.getElementById("topic-list");
 for (let topic of topics) {
+  //we create our element
   const li = document.createElement("li");
+
+  // we add the list item as a text to our element
   li.textContent = topic;
+
+  // add the list item to our 'ul'
   topicList.appendChild(li);
 }
 

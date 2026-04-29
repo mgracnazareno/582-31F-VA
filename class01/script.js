@@ -187,3 +187,20 @@ const formattedPrices = prices.map(function (price) {
   return "$" + price;
 });
 console.log(formattedPrices);
+
+/**objects
+ *
+ */
+console.log("---------");
+
+const product = {
+  name: "Keyboard",
+  price: "49.99",
+  inStock: true,
+  describe: function () {
+    return this.name + " csots $" + this.price;
+  },
+};
+
+console.log(product.name);
+console.log(product.describe);
