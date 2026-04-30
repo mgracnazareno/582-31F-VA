@@ -22,6 +22,12 @@ const student = [
   },
 ];
 
+const courses = [
+  { code: "WIP2", title: "Web Interface Programming 2" },
+  { code: "AWP", title: "Advanced Programming" },
+  { code: "DB2", title: "Database Management Systems 2" },
+];
+
 // DOM References
 const studentBtn = document.getElementById("load-student-btn");
 const courseBtn = document.getElementById("load-courses-btn");
@@ -30,8 +36,23 @@ const status = document.getElementById("status");
 const studentData = document.getElementById("student-container");
 const courseData = document.getElementById("courses-container");
 
-studentBtn.addEventListener("click");
-
+console.log(student);
 function getStudentData() {
-  let promise = new Promise((resolve, reject) => {});
+  let promise = new Promise((resolve, reject) => {
+    if (auth == true) {
+      resolve(student);
+    } else {
+      reject("Authentication failed");
+    }
+  });
+  return promise;
 }
+
+//testing
+getStudentData()
+  .then((student) => {
+    console.log(student);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
