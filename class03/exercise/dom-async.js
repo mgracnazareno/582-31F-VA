@@ -11,7 +11,7 @@ function input_check(str) {
       }, 3000);
     } else {
       setTimeout(() => {
-        resolve("Content didnt load");
+        reject("Content didnt load");
       }, 3000);
     }
   });
@@ -27,7 +27,7 @@ button.addEventListener("click", () => {
   //   input_check().then((result) => {
   //     output.textContent = result;
   //   });
-  input_check()
+  input_check(input_field.value)
     .then((result) => {
       output.textContent = result;
       input_field.value = "";
