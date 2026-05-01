@@ -55,3 +55,16 @@ studentBtn.addEventListener("click", () => {
       console.log(error);
     });
 });
+
+function getCoursesData() {
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (courses.length > 0) {
+        resolve(courses);
+      } else {
+        reject("Courses failed to load!");
+      }
+    }, 1000);
+  });
+  return promise;
+}
