@@ -1,7 +1,7 @@
 const student = {
   id: 1,
   name: "Mary Brown",
-  program: "Web Design",
+  program: "Advanced Programming",
   semester: "Winter 2026",
   bio: "Web Developer",
 };
@@ -43,7 +43,7 @@ function renderStudent(student) {
 }
 
 studentBtn.addEventListener("click", () => {
-  console.log("Button Clicked!");
+  // console.log("Button Clicked!");
   statusText.textContent = "Loading Students...";
 
   getStudentData()
@@ -68,3 +68,43 @@ function getCoursesData() {
   });
   return promise;
 }
+
+function renderCourses(courses) {
+  courseData.innerHTML = "";
+  const heading = document.createElement("h3");
+  heading.textContent = "Courses";
+  courseData.append(heading);
+
+  const list = document.createElement("ul");
+  courses.forEach((course) => {
+    const li = document.createElement("li");
+
+    const codeSpan = document.createElement("strong");
+    codeSpan.textContent = course.code;
+    li.append(codeSpan);
+    li.append(` - ${course.title}`);
+
+    list.append(li);
+  });
+
+  courseData.append(list);
+}
+
+courseBtn.addEventListener("click", () => {
+  statusText.textContent = "Loading courses ...";
+
+  getCoursesData(courses)
+    .then((courses) => {
+      renderCourses(courses);
+      statusText.textContent = "Courses loaded successfully!";
+    })
+    .catch((error) => {
+      statusText.textContent = error;
+    });
+});
+
+clearBtn.addEventListener("click", () => {
+  studentData.innerHTML = "";
+  courseData.innerHTML = "";
+  statusText.textContent = "Ready";
+});
